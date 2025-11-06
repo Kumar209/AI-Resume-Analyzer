@@ -1,87 +1,69 @@
-# Welcome to React Router!
+# 🧠 AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+> Build an **AI-powered Resume Analyzer** with **React**, **React Router**, and **Puter.js**!  
+> Seamlessly authenticate users, upload and store resumes, and match candidates to jobs using smart AI evaluations.  
+> Get **custom feedback** and **ATS scores** tailored to each listing — all wrapped in a **clean, reusable, and modern UI**.
 
 ---
 
-Built with ❤️ using React Router.
+## ✨ Introduction
+
+Create a next-gen platform where users can:  
+- 🔐 **Authenticate seamlessly** using Puter.js — no backend setup required  
+- 📄 **Upload, manage, and analyze** resumes securely  
+- 🤖 **Get AI-based job matching** and ATS scoring with detailed feedback  
+- 🎨 **Experience a responsive and modern UI**, built with Tailwind CSS and shadcn/ui
+
+> 💬 Need help or facing bugs?  
+> Join our active **Discord Community (50K+ members)** where developers help each other daily.
+
+---
+
+## 🌆 Project Preview
+
+Preview below 👇  
+
+![alt text](image-3.png)
+![alt text](image-2.png)
+![alt text](image.png)
+![alt text](image-1.png)
+
+---
+
+## ⚙️ Tech Stack
+
+| Technology | Description |
+|-------------|-------------|
+| ⚛️ **React** | A powerful library for building reusable, dynamic user interfaces using components and virtual DOM. |
+| 🧭 **React Router v7** | The go-to routing library for React apps with nested routes, loaders/actions, error boundaries, SSR, and code splitting. |
+| ☁️ **Puter.com** | An open-source, fast, privacy-first internet OS — a personal cloud to store files, apps, and games securely. |
+| 🧩 **Puter.js** | A lightweight client SDK providing auth, storage, database, and AI (GPT, Claude, DALL·E, OCR) directly in your browser — **no backend needed!** |
+| 🎨 **Tailwind CSS** | A utility-first CSS framework for fast, custom UI design using low-level utility classes. |
+| 🧑‍💻 **TypeScript** | A superset of JavaScript adding static typing, improved tooling, and better scalability. |
+| ⚡ **Vite** | A lightning-fast build tool and dev server for modern web development with instant HMR and optimized builds. |
+| 🪣 **Zustand** | A minimal, hook-based state management library for React — simple, fast, and scalable. |
+
+---
+
+## 🔋 Features
+
+✅ **Easy & Secure Authentication**  
+Handle auth completely in the browser with Puter.js — no backend setup or API keys needed.
+
+✅ **Resume Upload & Storage**  
+Let users upload, view, and manage resumes safely and reliably.
+
+✅ **AI-Powered Resume Matching**  
+Get ATS scores and feedback tailored to specific job descriptions.
+
+✅ **Reusable, Modern UI Components**  
+Built with Tailwind CSS + shadcn/ui for a clean, consistent look.
+
+✅ **Code Reusability & Scalability**  
+Modular architecture ensures clean, maintainable code.
+
+✅ **Cross-Device Compatibility**  
+Responsive design that works seamlessly across all screen sizes.
+
+✅ **Sleek UI/UX Design**  
+Modern layout with animations and a professional, polished feel.
