@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 // import {usePuterStore} from "~/lib/puter";
 
 const ResumeCard = ({ resume: { id, companyName, jobTitle, feedback, imagePath } }: { resume: Resume }) => {
-    debugger;
     // const { fs } = usePuterStore();
     // const [resumeUrl, setResumeUrl] = useState('');
 

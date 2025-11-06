@@ -4,6 +4,8 @@ import Navbar from '~/components/Navbar';
 import { usePuterStore } from '~/lib/puter';
 import {prepareInstructions} from "../../contants/index";
 import FileUploader from '~/components/FileUploader';
+import { convertPdfToImage } from '~/lib/pdf2img';
+import { generateUUID } from '~/lib/utils';
 
 const upload = () => {
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
@@ -55,7 +57,6 @@ const upload = () => {
     };
 
     const validate = () => {
-        debugger;
         const newErrors = {
         companyName: '',
         jobTitle: '',
@@ -79,40 +80,41 @@ const upload = () => {
         if(!uploadedFile) return setStatusText('Error: Failed to upload file');
 
         setStatusText('Converting to image...');
-        // const imageFile = await convertPdfToImage(file);
-        // if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image');
+        const imageFile = await convertPdfToImage(file);
+        if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image');
 
         setStatusText('Uploading the image...');
-        // const uploadedImage = await fs.upload([imageFile.file]);
-        // if(!uploadedImage) return setStatusText('Error: Failed to upload image');
+        const uploadedImage = await fs.upload([imageFile.file]);
+        if(!uploadedImage) return setStatusText('Error: Failed to upload image');
 
-        // setStatusText('Preparing data...');
-        // const uuid = generateUUID();
-        // const data = {
-        //     id: uuid,
-        //     resumePath: uploadedFile.path,
-        //     imagePath: uploadedImage.path,
-        //     companyName, jobTitle, jobDescription,
-        //     feedback: '',
-        // }
-        // await kv.set(`resume:${uuid}`, JSON.stringify(data));
+        setStatusText('Preparing data...');
+        const uuid = generateUUID();
+        const data = {
+            id: uuid,
+            resumePath: uploadedFile.path,
+            imagePath: uploadedImage.path,
+            companyName, jobTitle, jobDescription,
+            feedback: '',
+        }
+        await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
-        // setStatusText('Analyzing...');
+        setStatusText('Analyzing...');
 
-        // const feedback = await ai.feedback(
-        //     uploadedFile.path,
-        //     prepareInstructions({ jobTitle, jobDescription })
-        // )
-        // if (!feedback) return setStatusText('Error: Failed to analyze resume');
+        //feedback from ai service uses claude-sonnet-4 changed to claude-3-7-sonnet model
+        const feedback = await ai.feedback(
+            uploadedFile.path,
+            prepareInstructions({ jobTitle, jobDescription })
+        )
+        if (!feedback) return setStatusText('Error: Failed to analyze resume');
 
-        // const feedbackText = typeof feedback.message.content === 'string'
-        //     ? feedback.message.content
-        //     : feedback.message.content[0].text;
+        const feedbackText = typeof feedback.message.content === 'string'
+            ? feedback.message.content
+            : feedback.message.content[0].text;
 
-        // data.feedback = JSON.parse(feedbackText);
-        // await kv.set(`resume:${uuid}`, JSON.stringify(data));
-        // setStatusText('Analysis complete, redirecting...');
-        // console.log(data);
+        data.feedback = JSON.parse(feedbackText);
+        await kv.set(`resume:${uuid}`, JSON.stringify(data));
+        setStatusText('Analysis complete, redirecting...');
+        console.log(data);
         // navigate(`/resume/${uuid}`);
     }
 
@@ -139,12 +141,12 @@ const upload = () => {
             <Navbar />
 
             <section className="main-section">
-                <div className="page-heading py-16">
+                <div className="page-heading">
                     <h1>Smart feedback for your dream job</h1>
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
-                            <img src="/images/resume-scan.gif" className="w-full" />
+                            <img src="/images/resume-scan4.gif" className="w-[60%]" />
                         </>
                     ) : (
                         <h2>Drop your resume for an ATS score and improvement tips</h2>
