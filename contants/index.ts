@@ -225,6 +225,7 @@ export const AIResponseFormat = `
       };
     }`;
 
+    //prompt to prepare analysis
 export const prepareInstructions = ({
   jobTitle,
   jobDescription,
