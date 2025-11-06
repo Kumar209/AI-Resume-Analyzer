@@ -14,9 +14,6 @@ Create a next-gen platform where users can:
 - 🤖 **Get AI-based job matching** and ATS scoring with detailed feedback  
 - 🎨 **Experience a responsive and modern UI**, built with Tailwind CSS and shadcn/ui
 
-> 💬 Need help or facing bugs?  
-> Join our active **Discord Community (50K+ members)** where developers help each other daily.
-
 ---
 
 ## 🌆 Project Preview
