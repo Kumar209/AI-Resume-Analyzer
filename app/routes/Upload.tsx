@@ -114,7 +114,6 @@ const upload = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
-        console.log(data);
         navigate(`/resume/${uuid}`);
     }
 
@@ -131,7 +130,6 @@ const upload = () => {
         const jobDescription = formData.get('job-description') as string;
 
         if(!file) return;
-        console.log({ companyName, jobTitle, jobDescription, file });
 
         handleAnalyze({ companyName, jobTitle, jobDescription, file });
     }

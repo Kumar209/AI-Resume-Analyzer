@@ -30,7 +30,6 @@ export async function convertPdfToImage(
   file: File
 ): Promise<PdfConversionResult> {
   try {
-    debugger;
     const lib = await loadPdfJs();
 
     const arrayBuffer = await file.arrayBuffer();
