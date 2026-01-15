@@ -29,13 +29,11 @@ export default function Home() {
       setLoadingResumes(true);
 
       const resumes = (await kv.list('resume:*', true)) as KVItem[];
-      console.log(resumes);
 
       const parsedResumes = resumes?.map((resume) => (
           JSON.parse(resume.value) as Resume
       ))
 
-      console.log({ parsedResumes });
       setResumes(parsedResumes || []);
       setLoadingResumes(false);
     }
